@@ -11,6 +11,11 @@ class controller implements \core\interfaces\controllers{
    private $_claseActual   = '';
    private $_controller    = null;
    private $_mensaje       = '';
+   private $_seccion       = '';
+   private $_modulo        = '';
+   private $_operacion     = '';
+   private $_standalone    = false;
+   
 
 
    static private $instance = null;
@@ -57,20 +62,9 @@ class controller implements \core\interfaces\controllers{
 
    private function _trace()
    {
-       $url = strtolower($_SERVER['PATH_INFO']);
+       $this->_seccion;
 
-       $urlPartes = explode('/',$url);
-
-       unset($urlPartes[0]);
-
-       foreach($urlPartes as $dir)
-       {
-           $this->_claseActual .= '\\' . $dir;
-       }
-
-       $this->_claseActual.= '\\'. $urlPartes[count($urlPartes)];
-
-       $this->_claseActual = \core\config\general::__SYSTEMFOLDER__. $this->_claseActual;
+       $this->_claseActual = \core\config\general::__SYSTEMFOLDER__.$this->_seccion.$this->_modulo.$this->_modulo;
    }
 
    /**
