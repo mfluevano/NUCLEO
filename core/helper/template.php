@@ -45,7 +45,7 @@ class template
         return $this->_HTML;
     }
     
-    public function render()
+    public function renderHTML()
     {
         $this->loadTemplate();
         

@@ -15,4 +15,6 @@ interface permisos {
     
     public function validaPermiso($ruta);
     
+    public function obtenerPermisos();
+    
 }

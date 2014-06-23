@@ -18,4 +18,6 @@ interface controllers {
      * 
      * @author Mario Felipe Luevano Villagomez <fluevano@gmail.com>
      */
+    public function permisos();
+    
 }
