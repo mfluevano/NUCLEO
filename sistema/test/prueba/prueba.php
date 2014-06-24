@@ -1,20 +1,16 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace sistema\test\prueba;
 
 /**
  * Description of prueba
  *
- * @author MFLUEVANO
+ * @author Mario Felipe Luevano Villagomez <fluevano@gmail.com>
  */
-class prueba {
+class prueba extends \core\view\vista {
     public function __construct() {
-        echo'entre';
+        parent::__construct();
+        
     }
+    
 }

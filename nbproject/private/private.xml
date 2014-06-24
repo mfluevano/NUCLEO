@@ -8,6 +8,14 @@
             <file>file:/D:/Proyectos/htdocs/NUCLEO/core/config/general.php</file>
             <file>file:/D:/Proyectos/htdocs/NUCLEO/plugins/autoload/autoload.php</file>
         </group>
-        <group name="Misproyectos"/>
+        <group name="Misproyectos">
+            <file>file:/P:/ProyectosWeb/NUCLEO/core/view/vista.php</file>
+            <file>file:/P:/ProyectosWeb/NUCLEO/sistema/test/prueba/prueba.php</file>
+            <file>file:/P:/ProyectosWeb/NUCLEO/core/helper/template.php</file>
+            <file>file:/P:/ProyectosWeb/NUCLEO/site_media/html/templates/base.html</file>
+            <file>file:/P:/ProyectosWeb/NUCLEO/core/controller/controller.php</file>
+            <file>file:/P:/ProyectosWeb/NUCLEO/index.php</file>
+            <file>file:/P:/ProyectosWeb/NUCLEO/core/config/general.php</file>
+        </group>
     </open-files>
 </project-private>

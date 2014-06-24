@@ -30,6 +30,11 @@ class template
         
     }
     
+    public function loadTemplate()
+    {
+        $this->_HTML = file_get_contents($this->_template);
+    }
+    
     private function setTemplate($template)
     {
         $this->_template = $template;
@@ -58,11 +63,11 @@ class template
         $this->setVariable('{footer}', $this->_footer);
         
         $this->setVariable('{js}', $this->_js);
-       
+        
         return $this->getHTML();
         
     }
-   
+    
     public function __call($name, $arguments) 
     {
         $this->_HTML='No se localiza el metodo'. $name;

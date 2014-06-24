@@ -16,7 +16,7 @@ class general{
 
     const __DBNAME__        = '';
 
-    const __TEMPLATEHOST__  = '/site_media/html/templates/';
+    const __TEMPLATEHOST__  = 'site_media/html/templates/';
 
     const __TEMPLATE__      =  'base.html';
 

@@ -4,9 +4,11 @@ namespace core\view;
 class vista 
 {
     private $_controller = null;
+    private $_template   = null;
     
     public function __construct() 
-    {
+    {   
+        $this->_template = new \core\helper\template();
     }
  
     /**
@@ -17,7 +19,7 @@ class vista
     
     public function render()
     {
-        
+        return $this->_template->renderHTML();   
     }
     
     public function __call($name, $arguments) 

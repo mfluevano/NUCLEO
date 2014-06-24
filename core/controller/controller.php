@@ -80,7 +80,11 @@ class controller implements \core\interfaces\controllers
 
    private function _trace()
    {
-       $this->_seccion;
+       $this->_seccion = isset($_GET['seccion']) && $_GET['seccion'] !== '' ? '\\' . $_GET['seccion'] : '';
+       
+       $this->_modulo = isset($_GET['modulo']) && $_GET['modulo'] !== '' ? '\\' . $_GET['modulo'] : '';
+       
+       $this->_operacion = isset($_GET['operacion']) && $_GET['operacion'] !== '' ? '\\' . $_GET['operacion'] : '';
 
        $this->_claseActual = \core\config\general::__SYSTEMFOLDER__.$this->_seccion.$this->_modulo.$this->_modulo;
    }
@@ -92,18 +96,20 @@ class controller implements \core\interfaces\controllers
 
    private function setInstancia()
    {
+       
        if(class_exists($this->_claseActual))
        {
+           
            $this->_controller = new $this->_claseActual();
            
            $this->setMensaje('',\core\config\vars::ok);
        }
        else
        {
-           throw new \Exception('Modulo no registrado');
+           throw new \Exception('Modulo '.$this->_claseActual.' no registrado');
        }
    }
-   
+    
    #Overrides controllers
   
    /**
@@ -120,16 +126,15 @@ class controller implements \core\interfaces\controllers
        {
            $this->_trace();
            
-           $vista = new \core\view\vista();
+           $this->setInstancia();
            
-           $this->_controller = $this->setInstancia();
-           
-           return $vista->render($this);
-
+           return $this->_controller->render();
        }  
        catch (\Exception $E)
        {
            $this->setMensaje($E->getMessage(), \core\config\vars::error);
+           
+           return $this->getMensaje();
        }
 
    }
