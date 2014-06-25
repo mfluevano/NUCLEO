@@ -12,7 +12,9 @@ class template
     private $_header    = '';
     private $_content   = '';
     private $_js        = '';
+    private $_js_files  = array();
     private $_css       = '';
+    private $_css_files = '';
     private $_footer    = '';
     private $_template  = '';
     private $_HTML      = '';
@@ -22,12 +24,23 @@ class template
         if(file_exists(\core\config\general::__TEMPLATEHOST__. \core\config\general::__TEMPLATE__))
         {
             $this->setTemplate(\core\config\general::__TEMPLATEHOST__. \core\config\general::__TEMPLATE__);
+            
+            $this->setBase();
         }
         else
         {
            echo \core\config\general::__TEMPLATEHOST__ . \core\config\general::__TEMPLATE__;
         }
         
+    }
+    
+    private function setBase()
+    {
+        $this->agregarArchivoCSS('wsk/h5pb.css');
+        
+        $this->agregarArchivoCSS('wsk/components/components.css');
+        
+        $this->agregarArchivoCSS('wsk/main.css');
     }
     
     public function loadTemplate()
@@ -39,10 +52,36 @@ class template
     {
         $this->_template = $template;
     }
-    
     public function setVariable($variable,$valor)
     {
         $this->_HTML = str_replace($variable, $valor, $this->_HTML);
+    }
+    
+    public function agregarJS($script)
+    {
+        $this->_js .= $script;
+    }
+    
+    public function agregarArchivoJS($file)
+    {
+        $this->_js_files[] = $file;
+    }
+    
+    public function agregarCSS($style)
+    {
+        $this->_js .= $style;
+    }
+    
+    public function agregarArchivoCSS($file)
+    {
+        $this->_css_files[] = $file;
+        
+        $this->_css = '';
+                
+        foreach( $this->_css_files as $css)
+        {
+            $this->_css .= '<link rel="stylesheet" href="'. \core\config\general::__CSSFOLDER__.$css.'">';
+        }
     }
     
     public function getHTML()
