@@ -36,22 +36,31 @@ class template
     
     private function setBase()
     {
-        $this->agregarArchivoCSS('wsk/h5pb.css');
-        
-        $this->agregarArchivoCSS('wsk/components/components.css');
-        
-        $this->agregarArchivoCSS('wsk/main.css');
+        //este metodo solo se modificara en caso de que exsista alfo generico para cualquier sistema 
     }
     
+    /**
+     * Toma el template asignado y lo coloca en HTML
+     * @author Mario Felipe Luevano Villagomez  <fluevano@gmail.com>
+     */
     public function loadTemplate()
     {
         $this->_HTML = file_get_contents($this->_template);
     }
     
+    /**
+     * asigna el template que se utilizara para renderizar 
+     * @author Mario Felipe Luevano Villagomez  <fluevano@gmail.com>
+     */
     private function setTemplate($template)
     {
         $this->_template = $template;
     }
+    
+    /**
+     * sustituye una TAG del template con un valor dado 
+     * @author Mario Felipe Luevano Villagomez  <fluevano@gmail.com>
+     */
     public function setVariable($variable,$valor)
     {
         $this->_HTML = str_replace($variable, $valor, $this->_HTML);

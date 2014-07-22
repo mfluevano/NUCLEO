@@ -1,13 +1,17 @@
 <?php
 /**
- * Esta clase es meramente de configu
+ * Esta clase es solo de configuracion
  */
 namespace core\config;
 
 class general{       
 
+ #configutaciones para el cliente nusoap
+    static $server = "http://localhost/operadoraMaxipuntos/";
+    
+    static $wsdl = "lealtadWS/srv_cat.php?wsdl";
+    
  #directivas y constantes
-
     const __DBHOST__        = 'localhost';
 
     const __DBLOGIN__       = '';

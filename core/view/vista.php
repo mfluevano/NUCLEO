@@ -1,7 +1,7 @@
 <?php
 namespace core\view;
 
-class vista 
+class vista
 {
     private $_controller = null;
     private $_template   = null;
@@ -10,7 +10,6 @@ class vista
     {   
         $this->_template = new \core\helper\template();
     }
- 
     /**
      * Metodo encargado de llamar el modulo corresponfiente pintarlo y mostrar sus 
      * mensajes

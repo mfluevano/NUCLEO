@@ -2,7 +2,8 @@
 
 namespace core\acl;
 
-class test implements \core\interfaces\permisos{
+class test implements \core\interfaces\permisos
+{
     private $_permisos = null;
     
     public function __construct() {
@@ -18,7 +19,7 @@ class test implements \core\interfaces\permisos{
     }
 
     public function validaPermiso($ruta) {
-        
+        return true;
     }
 
 }

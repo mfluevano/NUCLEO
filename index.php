@@ -5,11 +5,11 @@ namespace
     
     ob_start();
     
-    $test= \core\controller\controller::getInstance();
+    $system= \core\controller\controller::getInstance();
     
-    echo $test->iniciar();
+    $system->definirInput(new \core\lib\input());
     
-    
+    echo $system->iniciar();
     
     ob_end_flush();
 }
